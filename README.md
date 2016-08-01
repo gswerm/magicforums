@@ -1,3 +1,3 @@
 # MagicForums
 
-A simple discussion board created by me during Magic's Full Stack Development Bootcamp
+A simple discussion board created by Arwen Goh during Magic's Full Stack Development Bootcamp
