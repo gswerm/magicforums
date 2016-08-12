@@ -1,0 +1,24 @@
+<div class="text-center margin-create">
+
+  <%= form_for(@user,url: user_path, html: { id: "user-create-form" })  do |f| %>
+  <h1 class="text-center">
+    Edit User
+  </h1>
+
+  <div class="form-group">
+    <h4> <%= f.label :password_field, "Password" %> </h4>
+    <%= f.password_field :password, required: true, id: "Password_field", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <h4> <%= f.label :password_field, "Password Confirmation" %> </h4>
+    <%= f.password_field :password_confirmation, required: true, id: "Password_field", class: 'form-control' %>
+  </div>
+
+  <div class="form-group text-center">
+    <%= f.submit "Update", class: "btn btn-success btn-lg" %>
+    <%= f.submit "Back", class: "btn btn-success btn-lg" %>
+  </div>
+
+  <% end %>
+</div>

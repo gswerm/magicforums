@@ -1,0 +1,29 @@
+<div class="text-center margin-create2">
+
+<%= form_for(@comment, url: topic_post_comment_path(@topic, @post, @comment), html: { id: "comment-update-form" }) do |f| %>
+  <h1 class="text-center">
+    Create Comment
+  </h1>
+
+  <div class="form-group">
+      <h4 class="text-center"> Post Image </h4>
+      <div id="preview-image">
+        <% if @comment.image? %>
+          <%= image_tag @comment.image, class: "img-settings img-responsive center-block" %>
+        <% end %>
+      </div>
+    </div>
+
+  <div class="form-group">
+    <%= f.file_field :image, id: "comment_image_field", class: 'form-control image-uploader' %>
+  </div>
+
+  <div class="form-group">
+    <h4> <%= f.label :text_field, "Body" %> </h4>
+    <%= f.text_field :body, id: "comment_description_field", class: 'form-control' %>
+  </div>
+
+  <div class="form-group text-center">
+    <%= f.submit "Update Comment", class: "btn btn-success btn-lg" %>
+  </div>
+<% end %>

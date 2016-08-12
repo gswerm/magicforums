@@ -1,20 +1,47 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">MagicForums</a>
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-dropdown" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
+<div class="header">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to "MagicForums", root_path, class: "navbar-brand" %>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-dropdown" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
 
-      <div class="collapse navbar-collapse" id="header-dropdown">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Topics<span class="sr-only">(current)</span></a></li>
-          <li><a href="#">Log In<span class="sr-only">(current)</span></a></li>
-        </ul>
+        <div class="collapse navbar-collapse" id="header-dropdown">
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "About", about_path %></li>
+              <% if current_page?(controller: 'topics' , action: 'index') %>
+              <li><%= link_to "New Topic", new_topic_path %></li>
+            <% else %>
+              <li><%= link_to "Topics", topics_path %></li>
+            <% end %>
+        
+
+          <% if current_user %>
+          <li>
+            <%= link_to current_user.username, edit_user_path(current_user), class: 'white shadowed link-styling' %>
+          </li>
+
+          <li>
+            <%= link_to "Logout", session_path(current_user), method: :delete, class: 'white shadowed link-styling' %>
+          </li>
+
+          <% else %>
+
+          <li>
+            <%= link_to "Register", new_user_path, class: 'white shadowed link-styling' %>
+          </li>
+
+          <li>
+            <%= link_to "Login", new_session_path, class: 'white shadowed link-styling' %>
+          </li>
+          <% end %>
+        </div>
+
       </div>
-    </div>
-  </nav>
+    </nav>
+</div>

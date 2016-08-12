@@ -1,0 +1,21 @@
+<div class="text-center">
+
+  <h1>Comments</h1>
+
+
+  <div id="comments">
+    <% @comments.each do |comment| %>
+    <div class="text-center comment"
+    <%= render partial: "comment", locals: { comment: comment, post: @post, topic: @topic } %>
+  </div>
+  <% end %>
+  </div>
+
+  <%= paginate @comments %>
+  <%= page_entries_info @comments %>
+
+  <div id="comments-form-container">
+    <%= render partial: "create_form", locals: { comment: @comment, post: @post } %>
+  </div>
+
+</div>

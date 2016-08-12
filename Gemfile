@@ -31,6 +31,7 @@ group :production do
   gem 'rails_12factor'
 end
 
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -52,3 +53,21 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'font-awesome-rails'
+
+group :development, :test do
+gem 'pry'
+end
+
+gem 'carrierwave'
+gem 'mini_magick'
+
+group :development do
+   gem 'letter_opener'
+end
+
+gem 'figaro'
+gem 'pundit'
+gem 'responders'
+gem 'remotipart', github: 'sr3d/remotipart'
+
+gem 'kaminari'

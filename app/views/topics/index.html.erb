@@ -1,0 +1,21 @@
+<div class="a text-center">
+
+  <h1>Topics</h1>
+
+  <div class="topics">
+  <% @topics.each do |topic| %>
+  <div class="text-center topic">
+    <div class="">
+      <h3 style="text-center"><%= topic.title %></h3>
+      <h5><%= topic.description %></h5>
+      <%= link_to "more info", topic_posts_path(topic), :class => 'btn btn-warning btn-md'%>
+      <%= link_to "Edit", edit_topic_path(topic)%>
+      <%= link_to "Delete", topic_path(topic), method: :delete, data: { confirm: "Delete?" } %>
+    </div>
+  </div>
+  <% end %>
+  <%= paginate @topics %>
+  <%= page_entries_info @topics %>
+  </div>
+
+</div>

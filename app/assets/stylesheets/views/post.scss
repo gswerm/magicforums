@@ -1,0 +1,12 @@
+.background_image {
+  background: asset-url("sky.jpg") no-repeat 50% 50% fixed;
+  background-size: cover;
+  height: 100vh;
+  weight: 100%;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}

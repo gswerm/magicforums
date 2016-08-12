@@ -1,0 +1,39 @@
+<div class="a text-center">
+
+  <h1>Posts</h1>
+
+  <%= link_to "Add post", new_topic_post_path(@topic, @post) %>
+
+  <% if @posts.any? %>
+
+
+  <% @posts.each do |post| %>
+  <%= render partial: "post", locals: { post: post, topic: @topic } %>
+  <div class="text-center topic">
+  <div class="">
+      <h3 style="text-center"><%= post.title %></h3>
+      <%= image_tag post.image.thumb %>
+      <h5><%= post.body %></h5>
+      <%= link_to "more info", topic_post_comments_path(post.topic, post) %>
+      <%= link_to "Edit", edit_topic_post_path(@topic,post)%>
+      <%= link_to "Delete", topic_post_path(@topic,post), method: :delete, data: { confirm: "Delete?" } %>
+
+    </div>
+  </div>
+  <% end %>
+
+  <% else %>
+
+  <p>Nothing to see here</p>
+  <p>
+    No posts here. Create new post?
+  </p>
+
+  <% end %>
+
+
+  <%= paginate @posts %>
+  <%= page_entries_info @posts %>
+
+
+</div>

@@ -9,9 +9,14 @@
   </head>
 
   <body>
-    <div id='header'>
-      <%= render partial: 'partials/header' %>
-    </div>
-    <%= yield %>
+  <div id="header">
+    <%= render partial: 'partials/header' %>
+  </div>
+  
+  <div id="flash-messages-container">
+    <%= render partial: "partials/flash_messages" %>
+  </div>
+
+  <%= yield %>
   </body>
 </html>

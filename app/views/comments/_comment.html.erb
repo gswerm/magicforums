@@ -1,0 +1,17 @@
+<div data-id="<%=comment.id%>">
+  <%= image_tag comment.image.thumb %>
+
+  <h5 class="font-feature-2">
+    <%= comment.body %>
+  </h5>
+
+  <div class="buttons">
+    <%= link_to edit_topic_post_comment_path(topic, post, comment), remote: true do%>
+      <%= fa_icon "edit 2x", class: "btn btn-success btn-lg" %>
+    <% end %>
+
+    <%= link_to topic_post_comment_path(topic,post, comment), method: :delete do %>
+      <%= fa_icon "trash 2x", class: "btn btn-danger btn-lg" %>
+    <% end %>
+  </div>
+</div>
