@@ -1,7 +1,0 @@
-production:
-  AWS_ACCESS_KEY_ID: "AKIAJIRZWZQVRL7AL3HA"
-  AWS_SECRET_ACCESS_KEY: "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"
-  AWS_BUCKET: "fswdmagic"
-
-development:
-  SERVER_URL: "http://localhost:3000"
