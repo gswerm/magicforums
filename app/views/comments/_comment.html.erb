@@ -1,4 +1,4 @@
-<div data-id="<%=comment.id%>">
+<div class="comment <%=extra_class%>" data-id="<%= comment.id %>">
   <%= image_tag comment.image.thumb %>
 
   <h5 class="font-feature-2">
@@ -6,12 +6,28 @@
   </h5>
 
   <div class="buttons">
-    <%= link_to edit_topic_post_comment_path(topic, post, comment), remote: true do%>
+     <% if comment.user == current_user %>
+     <%= link_to edit_topic_post_comment_path(post.topic, post, comment), remote: true do%>
       <%= fa_icon "edit 2x", class: "btn btn-success btn-lg" %>
+      <% end %>
     <% end %>
 
-    <%= link_to topic_post_comment_path(topic,post, comment), method: :delete do %>
+    <% if comment.user == current_user || current_user&.admin? || current_user&.moderator? %>
+    <%= link_to topic_post_comment_path(post.topic,post, comment), method: :delete, remote: true do %>
       <%= fa_icon "trash 2x", class: "btn btn-danger btn-lg" %>
+      <% end %>
     <% end %>
   </div>
+
+  <div class="vote">
+    <span>total:</span>
+    <span class="voting-score"><%= comment.total_votes %></span>
+    <%= link_to upvote_path(comment_id: comment.id), method: :post, remote: true do %>
+      <%= fa_icon "thumbs-o-up 2x" %>
+    <% end %>
+    <%= link_to downvote_path(comment_id: comment.id), method: :post, remote: true do %>
+    <%= fa_icon "thumbs-o-down 2x" %>
+    <% end %>
+  </div>
+
 </div>

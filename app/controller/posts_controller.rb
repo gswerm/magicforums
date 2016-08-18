@@ -3,21 +3,21 @@ respond_to :js
 before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
 
   def index
-      @topic = Topic.includes(:posts).find_by(id: params[:topic_id])
+      @topic = Topic.includes(:posts).friendly.find(params[:topic_id])
       @posts = @topic.posts.order("created_at DESC").page(params[:page])
       # @posts = @topic.posts.order("created_at DESC")
       # @posts = Post.order(:id).page(params[:page]).per(6)
     end
 
     def new
-      @topic = Topic.find_by(id: params[:topic_id])
+      @topic = Topic.friendly.find(params[:topic_id])
       @post = Post.new
       authorize @post
     end
 
     def create
 
-      @topic = Post.find_by(id: params[:topic_id])
+      @topic = Post.friendly.find(params[:topic_id])
       @post = current_user.posts.build(post_params.merge(topic_id: params[:topic_id]))
 
       if @post.save
@@ -30,13 +30,13 @@ before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
     end
 
     def edit
-      @post = Post.find_by(id: params[:id])
+      @post = Post.friendly.find(params[:id])
       @topic = @post.topic
       authorize @post
     end
 
     def update
-      @topic = Topic.find_by(id: params[:topic_id])
+      @topic = Topic.friendly.find(params[:topic_id])
       @post = Post.find_by(id: params[:id])
 
       if @post.update(post_params)
@@ -47,7 +47,7 @@ before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
     end
 
     def destroy
-      @post = Post.find_by(id: params[:id])
+      @post = Post.friendly.find(params[:id])
       @topic = @post.topic
 
       if @post.destroy

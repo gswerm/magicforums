@@ -8,7 +8,7 @@ before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
   end
 
   def show
-    @topic = Topic.find_by(id: params[:id])
+    @topic = Topic.friendly.find(params[:id])
   end
 
   def new
@@ -30,12 +30,12 @@ before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
   end
 
   def edit
-    @topic = Topic.find_by(id: params[:id])
+    @topic = Topic.friendly.find(params[:id])
     authorize @topic
   end
 
   def update
-    @topic = Topic.find_by(id: params[:id])
+    @topic = Topic.friendly.find(params[:id])
     authorize @topic
 
     if @topic.update(topic_params)
@@ -46,7 +46,7 @@ before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
   end
 
   def destroy
-    @topic = Topic.find_by(id: params[:id])
+    @topic = Topic.friendly.find(params[:id])
     authorize @topic
     if @topic.destroy
       redirect_to topics_path

@@ -1,12 +1,11 @@
-<div class="text-center">
+<div class="comments index" data-id="<%= @post.id %>">
 
   <h1>Comments</h1>
 
-
   <div id="comments">
     <% @comments.each do |comment| %>
-    <div class="text-center comment"
-    <%= render partial: "comment", locals: { comment: comment, post: @post, topic: @topic } %>
+    <div class="text-center">
+    <%= render partial: "comment", locals: { comment: comment, post: @post, topic: @topic, extra_class: '' } %>
   </div>
   <% end %>
   </div>

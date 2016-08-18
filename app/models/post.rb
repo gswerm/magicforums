@@ -6,4 +6,8 @@ class Post < ApplicationRecord
   validates :body, length: { minimum: 20 }, presence: true
   belongs_to :user
   paginates_per 6
+
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
 end

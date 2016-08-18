@@ -69,5 +69,6 @@ gem 'figaro'
 gem 'pundit'
 gem 'responders'
 gem 'remotipart', github: 'sr3d/remotipart'
-
 gem 'kaminari'
+gem 'redis'
+gem 'friendly_id', github: 'norman/friendly_id'

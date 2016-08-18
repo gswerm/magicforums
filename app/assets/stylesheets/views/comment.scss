@@ -1,27 +1,40 @@
-.background_image {
-  background: asset-url("sky.jpg") no-repeat 50% 50% fixed;
-  background-size: cover;
-  height: 100vh;
-  weight: 100%;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  -webkit-background-size: cover;
-  display:flex;
-  align-items: center;
-  justify-content: center;
-}
+.comments{
+  .background_image {
+    background: asset-url("sky.jpg") no-repeat 50% 50% fixed;
+    background-size: cover;
+    height: 100vh;
+    weight: 100%;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .index{
 
-.comment {
-  display: inline-block;
-  flex: 0 0 500px;
-  min-height: 150px;
-  padding: 50px;
-  border: 0.25px solid grey;
-  outline-style: double;
-  outline-color: turquoise;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 10px;
-  // align-items: center;
-  justify-content: space-around;
+  }
+  .comment {
+    display: inline-block;
+    flex: 0 0 500px;
+    min-height: 150px;
+    padding: 50px;
+    border: 0.25px solid grey;
+    outline-style: double;
+    outline-color: turquoise;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    // align-items: center;
+    justify-content: space-around;
+  }
+
+  .parent {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hidden {
+    display: none;
+  }
 }
