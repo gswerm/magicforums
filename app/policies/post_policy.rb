@@ -13,7 +13,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def update?
-    new?
+    edit?
   end
 
   def destroy?

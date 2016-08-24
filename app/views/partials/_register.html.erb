@@ -1,0 +1,49 @@
+<div class="modal fade" id="register">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+
+        <div class="text-center margin-create">
+
+          <%= form_for(:user,url: users_path, html: { id: "user-create-form" })  do |f| %>
+          <h1 class="text-center">
+            Welcome
+          </h1>
+
+          <div class="form-group">
+            <h4> <%= f.label :username_field, "Username" %> </h4>
+            <%= f.text_field :username, required: true, id: "username_field", class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <h4> <%= f.label :email_field, "Email" %> </h4>
+            <%= f.text_field :email, required: true, id: "email_field", class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <h4> <%= f.label :password_field, "Password" %> </h4>
+            <%= f.password_field :password, required: true, id: "Password_field", class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <h4> <%= f.label :password_field, "Password Confirmation" %> </h4>
+            <%= f.password_field :password_confirmation, required: true, id: "Password_field", class: 'form-control' %>
+          </div>
+
+          <div class="form-group text-center">
+            <%= f.submit "Register", class: "btn btn-success btn-lg" %>
+          </div>
+
+          <!-- <div class="form-group text-center">
+          <%= f.submit "Create", class: "btn btn-success btn-lg" %>
+        </div> -->
+
+
+
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>

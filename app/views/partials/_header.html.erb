@@ -19,7 +19,7 @@
             <% else %>
               <li><%= link_to "Topics", topics_path %></li>
             <% end %>
-        
+
 
           <% if current_user %>
           <li>
@@ -33,11 +33,13 @@
           <% else %>
 
           <li>
-            <%= link_to "Register", new_user_path, class: 'white shadowed link-styling' %>
+            <!-- <%= link_to "Register", new_user_path, class: 'white shadowed link-styling' %> -->
+            <a data-toggle="modal" data-target="#register" class="white shadowed link-styling">Register</a>
           </li>
 
           <li>
-            <%= link_to "Login", new_session_path, class: 'white shadowed link-styling' %>
+            <!-- <%= link_to "Login", new_session_path, class: 'white shadowed link-styling' %> -->
+            <a data-toggle="modal" data-target="#login" class="white shadowed link-styling">login</a>
           </li>
           <% end %>
         </div>

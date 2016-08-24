@@ -7,6 +7,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.friendly.find(params[:id])
+    authorize @user
+    # flash[:danger] = "You're not authorized"
+    # redirect_to root_path
   end
 
   def create
@@ -24,7 +27,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.friendly.find(params[:id])
-
+    authorize @user
     if @user.update(user_params)
       redirect_to users_path(@user)
     else
@@ -37,4 +40,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :username, :image)
   end
+
 end
